@@ -4,14 +4,20 @@
   "description": "test",
   "main": "server.js",
   "dependencies": {
+    "axios": "^0.23.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.12",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5",
+    "react-scripts": "^4.0.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "parcel client/index.html",
     "start": "node server.js"
   },
   "repository": {
