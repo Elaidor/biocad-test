@@ -6,6 +6,7 @@ class Report extends Component{
             return(
                 <section className="info_block">
                    <table>
+                       <caption>Calibration report</caption>
                         <thead>
                             <tr>
                                 <th>Data</th>

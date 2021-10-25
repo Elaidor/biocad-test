@@ -32,20 +32,20 @@ class Search extends Component{
     render(){
         const{showInfo,scalesData}=this.state;
         return (
-            <section>
-                <form onSubmit={this.handleSubmit}>
-                    <label className="search_block" >
-                    Enter inventory number, guid or bims id</label>
-                    <div>
-                        <input type="text"  value={this.state.value} onChange={this.handleChange}/>
-                        <input type="submit" value="Search" />
-                    </div>
-                </form>
+            <>
+                <section>
+                    <form onSubmit={this.handleSubmit}>
+                        <label className="search_block" >
+                        Enter inventory number, guid or bims id</label>
+                        <div>
+                            <input type="text"  value={this.state.value} onChange={this.handleChange}/>
+                            <input type="submit" value="Search" />
+                        </div>
+                    </form>
+                </section>
                 <Info show={showInfo} data={scalesData}/>
-            </section>
-
+            </>
         );
-
     }
 }
 export default Search;
