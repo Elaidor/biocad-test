@@ -35,9 +35,9 @@ class Info extends Component{
         if (this.props.show) {
             return(
                 <>
-                    <section className="info-block">
-                        <form onSubmit={this.handleSubmit}>
-                            <div>
+                    <section className="info-block flex">
+                        <form className="info-block__form" onSubmit={this.handleSubmit}>
+                            <div className="info-block__form_product flex">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_1:200)">
                                 <path d="M22.3506 10.0006C21.8935 10.0006 21.5228 9.62745 21.5228 9.16724V5.83414C21.5228 5.37393 21.8935 5.00082 22.3506 5.00082C22.8078 5.00082 23.1784 5.37393 23.1784 5.83414V9.16732C23.1783 9.62745 22.8078 10.0006 22.3506 10.0006Z" fill="#FFA000"/>
@@ -59,14 +59,25 @@ class Info extends Component{
                                 </clipPath>
                                 </defs>
                             </svg>                           
-                                <p>{this.props.data['product_name']}</p>
+                                <p className="info-block__form_product_name">{this.props.data['product_name']}</p>
                             </div>
-                            <select value={this.state.value} onChange={this.handleChange}>
+                            <select className="info-block__form_select" value={this.state.value} onChange={this.handleChange}>
                                 <option value="1 month">1 month</option>
                                 <option value="1 week">1 week</option>
                                 <option value="1 year">1 year</option>
                             </select>
-                            <input type="submit" value="Отправить" />
+                            <div className="info-block__form_radio">
+                                <label><input type="radio" id="reportChoice1"
+                                name="report" value="calibration" checked/>
+                               Calibration</label>
+                                <label><input type="radio" id="reportChoice2"
+                                name="report" value="measuring"/>
+                                Measuring</label>
+                                <label><input type="radio" id="reportChoice3"
+                                name="report" value="using"/>
+                                Using</label>
+                            </div>
+                            <input className="info-block__form_button" type="submit" value="Generate report" />
                         </form>
                         <div className="info-block__description">
                             <ul className="info-block__description_ul" >
@@ -79,19 +90,18 @@ class Info extends Component{
                                 <li className="info-block__description_li">МОЛ: <span>{this.props.data["mol"]}</span></li>
                                 <li className="info-block__description_li">Территория: <span>{this.props.data["territory"]}</span></li>
                                 <li className="info-block__description_li">Серийный номер: <span>{this.props.data["serial"]}</span></li>
-                                <li className="info-block__description_li">GUID: <span>{this.props.data["guid"]}</span></li>
-                                <li className="info-block__description_li">Bims ID: <span>{this.props.data["bims_id"]}</span></li>
-                                <li className="info-block__description_li">Tam: <span>{this.props.data["tam"]}</span></li>
+                                <li className="info-block__description_li">GUID: <a className="blue-color" href="#">{this.props.data["guid"]}</a></li>
+                                <li className="info-block__description_li">Bims ID: <a className="blue-color" href="#"> {this.props.data["bims_id"]}</a></li>
+                                <li className="info-block__description_li">Tam: <a className="blue-color" href="#"> {this.props.data["tam"]}</a></li>
                             </ul>
                         </div>
                     </section>
                     <Report show={showReport} data={reportData}/>
                  </>
             ) 
-            // <div>{this.props.data['tam']}</div>
-        } else {
+        } else if(this.props.data !== {}){
         return(
-            <div></div>
+            <div>Нет информации</div>
         )};
     }
 }
