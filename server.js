@@ -32,8 +32,4 @@ app.get("/api/calibrations/:scale_id",(req,res,next)=>{
         .catch(err=>console.log(err))
 });
 
-app.get("/api/fill-db-with-test-data", (req,res,next)=>{
-
-});
-
 app.listen(port,()=>{});
