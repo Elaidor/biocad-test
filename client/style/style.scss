@@ -99,6 +99,7 @@ $primary-color:#353535;
         border:none;
         color: #FFFFFF;
         padding: 8px 0;
+        cursor: pointer;
     }
 }
 
@@ -115,7 +116,7 @@ $primary-color:#353535;
         .info-block__description_li{
             color:#8C8C8C;
             margin-bottom: 10px;
-            font-size: 14px;
+            font-size: 13px;
             line-height: 17px;
             span{
                 color:$primary-color;
@@ -126,4 +127,44 @@ $primary-color:#353535;
             }
         }
     }
+}
+
+.report-block{
+    margin-top: 46px;
+    padding: 40px;
+    border: 1px dashed #939DA6;
+    box-sizing: border-box;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    .report-block__table{
+        
+        .report-block__table_heading{
+            font-family: $regular-fonts;
+            color: #000000;
+            font-size: 16px;
+            line-height: 19px;
+            text-align: left;
+            margin-bottom: 27px;
+        }
+        th{
+            font-family: $regular-fonts;
+            font-size: 13px;
+            line-height: 15px;
+            color: #939DA6;
+            text-align: left;
+        }
+
+        td{
+            font-family: $regular-fonts;
+            font-size: 13px;
+            line-height: 15px;
+        }
+        .report-block__table_data{
+            font-size: 16px;
+            line-height: 19px;
+        }
+        .report-block__table_user{
+            font-size: 12px;
+            line-height: 14px;
+        }
+}
 }
