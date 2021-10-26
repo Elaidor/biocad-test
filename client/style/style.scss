@@ -23,8 +23,8 @@ $primary-color:#353535;
 }
 .search-block__input{
     align-items: center;
-    margin-top: 21px;
-    width: 320px;
+    margin-top: 17px;
+    width: 318px;
     .search-block__input_text{
         width: 208px;
         height: 30px;
@@ -47,62 +47,64 @@ $primary-color:#353535;
         border-radius: 3px;
     }
 }
-.info-block__form{
-    padding-top: 35px;
-    .info-block__form_product {
-        width: 320px;
-        margin-bottom: 30px;
-        .info-block__form_product_name{
-            width: 225px;
-            font-size: 20px;
-            line-height: 24px;
-            letter-spacing: 0.5px;
-            margin-top: 0;
-        }
-    }
-    .info-block__form_select{
-        box-sizing:border-box ;
-        width: 220px;
-        padding: 7px 12px;
-        font-family: $regular-fonts;
-        margin-bottom: 20px;
-    }
 
-    .info-block__form_radio{
-        display: flex;
-        flex-direction: column;
-        margin-bottom: 40px;
-        label{
-            display:flex;
-            align-items: center;
+.info-block{
+    padding-top: 30px;
+    .info-block__form{
+        .info-block__form_product {
+            width: 283px;
+            margin-bottom: 18px;
+            .info-block__form_product_name{
+                width: 225px;
+                font-size: 20px;
+                line-height: 24px;
+                letter-spacing: 0.5px;
+                margin-top: 0;
+            }
+        }
+        .info-block__form_select{
+            box-sizing:border-box ;
+            width: 220px;
+            padding: 2px 8px;
             font-family: $regular-fonts;
-            font-size: 14px;
-            line-height: 20px;
-            letter-spacing: 0.16px;
-            margin-bottom: 12px;
-        }
-        input{
-            margin-right: 16px;
-            width: 18px;
-            height: 18px;
+            margin-bottom: 20px;
         }
 
-    }
-    .info-block__form_button{
-        width: 180px;
-        background: #4990E2;
-        border-radius: 3px;
-        font-size: 14px;
-        line-height: 24px;
-        text-align: center;
-        letter-spacing: 0.16px;
-        border:none;
-        color: #FFFFFF;
-        padding: 8px 0;
-        cursor: pointer;
+        .info-block__form_radio{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 41px;
+            label{
+                display:flex;
+                align-items: center;
+                font-family: $regular-fonts;
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: 0.16px;
+                margin-bottom: 10px;
+            }
+            input{
+                margin-right: 12px;
+                width: 18px;
+                height: 18px;
+            }
+
+        }
+        .info-block__form_button{
+            width: 180px;
+            background: #4990E2;
+            border-radius: 3px;
+            font-size: 14px;
+            line-height: 24px;
+            text-align: center;
+            letter-spacing: 0.16px;
+            border:none;
+            color: #FFFFFF;
+            padding: 8px 0;
+            cursor: pointer;
+        }
     }
 }
-
 .info-block__description{
     width: 550px;
     background-color:#f7f7f7;
@@ -115,7 +117,7 @@ $primary-color:#353535;
         margin: 0;
         .info-block__description_li{
             color:#8C8C8C;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
             font-size: 13px;
             line-height: 17px;
             span{
@@ -136,14 +138,14 @@ $primary-color:#353535;
     box-sizing: border-box;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
     .report-block__table{
-        
+        border-collapse: collapse;
         .report-block__table_heading{
             font-family: $regular-fonts;
             color: #000000;
             font-size: 16px;
             line-height: 19px;
             text-align: left;
-            margin-bottom: 27px;
+            margin-bottom: 20px;
         }
         th{
             font-family: $regular-fonts;
@@ -151,12 +153,17 @@ $primary-color:#353535;
             line-height: 15px;
             color: #939DA6;
             text-align: left;
+            padding: 7px 20px 20px 0;
+            vertical-align: top;
         }
 
         td{
             font-family: $regular-fonts;
-            font-size: 13px;
-            line-height: 15px;
+            font-size: 14px;
+            line-height: 16px;
+            border-bottom: 1px solid #E9E9E9;
+            padding: 4px 20px 20px 0;
+            vertical-align: top;
         }
         .report-block__table_data{
             font-size: 16px;

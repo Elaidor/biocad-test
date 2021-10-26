@@ -18,9 +18,18 @@ class Report extends Component{
                         </thead>
                         <tbody>
                             {this.props.data.map((item,index) => {
+                                // let mass=item.data.split(" ");
+                                // let data=mass[0]+"<br/>"+mass[1]
+
                                 return(
                                 <tr key={index}>
-                                    <td className="report-block__table_data">{item.data}</td>
+                                    <td className="report-block__table_data">
+                                       {/* {data} */}
+                                       {/* {item.data} */}
+                                       {/* {item.data.split(" ").map(i => "<p>"+i+"</p>")} */}
+                                    {/* {item.data.split(" ").join("\n\r")} */}
+                                    {item.data} 
+                                    </td>
                                     <td>{
                                         item.solution.map((inner_item, inner_index)=>{
                                             return(

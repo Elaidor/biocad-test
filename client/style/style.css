@@ -20,8 +20,8 @@
 
 .search-block__input {
   align-items: center;
-  margin-top: 21px;
-  width: 320px; }
+  margin-top: 17px;
+  width: 318px; }
   .search-block__input .search-block__input_text {
     width: 208px;
     height: 30px;
@@ -42,40 +42,40 @@
     background: #353535;
     border-radius: 3px; }
 
-.info-block__form {
-  padding-top: 35px; }
-  .info-block__form .info-block__form_product {
-    width: 320px;
-    margin-bottom: 30px; }
-    .info-block__form .info-block__form_product .info-block__form_product_name {
+.info-block {
+  padding-top: 30px; }
+  .info-block .info-block__form .info-block__form_product {
+    width: 283px;
+    margin-bottom: 18px; }
+    .info-block .info-block__form .info-block__form_product .info-block__form_product_name {
       width: 225px;
       font-size: 20px;
       line-height: 24px;
       letter-spacing: 0.5px;
       margin-top: 0; }
-  .info-block__form .info-block__form_select {
+  .info-block .info-block__form .info-block__form_select {
     box-sizing: border-box;
     width: 220px;
-    padding: 7px 12px;
+    padding: 2px 8px;
     font-family: "TT Norms-Regular", Montserrat, sans-serif;
     margin-bottom: 20px; }
-  .info-block__form .info-block__form_radio {
+  .info-block .info-block__form .info-block__form_radio {
     display: flex;
     flex-direction: column;
-    margin-bottom: 40px; }
-    .info-block__form .info-block__form_radio label {
+    margin-bottom: 41px; }
+    .info-block .info-block__form .info-block__form_radio label {
       display: flex;
       align-items: center;
       font-family: "TT Norms-Regular", Montserrat, sans-serif;
       font-size: 14px;
       line-height: 20px;
       letter-spacing: 0.16px;
-      margin-bottom: 12px; }
-    .info-block__form .info-block__form_radio input {
-      margin-right: 16px;
+      margin-bottom: 10px; }
+    .info-block .info-block__form .info-block__form_radio input {
+      margin-right: 12px;
       width: 18px;
       height: 18px; }
-  .info-block__form .info-block__form_button {
+  .info-block .info-block__form .info-block__form_button {
     width: 180px;
     background: #4990E2;
     border-radius: 3px;
@@ -100,7 +100,7 @@
     margin: 0; }
     .info-block__description .info-block__description_ul .info-block__description_li {
       color: #8C8C8C;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
       font-size: 13px;
       line-height: 17px; }
       .info-block__description .info-block__description_ul .info-block__description_li span {
@@ -115,28 +115,35 @@
   border: 1px dashed #939DA6;
   box-sizing: border-box;
   box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15); }
-  .report-block .report-block__table .report-block__table_heading {
-    font-family: "TT Norms-Regular", Montserrat, sans-serif;
-    color: #000000;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: left;
-    margin-bottom: 27px; }
-  .report-block .report-block__table th {
-    font-family: "TT Norms-Regular", Montserrat, sans-serif;
-    font-size: 13px;
-    line-height: 15px;
-    color: #939DA6;
-    text-align: left; }
-  .report-block .report-block__table td {
-    font-family: "TT Norms-Regular", Montserrat, sans-serif;
-    font-size: 13px;
-    line-height: 15px; }
-  .report-block .report-block__table .report-block__table_data {
-    font-size: 16px;
-    line-height: 19px; }
-  .report-block .report-block__table .report-block__table_user {
-    font-size: 12px;
-    line-height: 14px; }
+  .report-block .report-block__table {
+    border-collapse: collapse; }
+    .report-block .report-block__table .report-block__table_heading {
+      font-family: "TT Norms-Regular", Montserrat, sans-serif;
+      color: #000000;
+      font-size: 16px;
+      line-height: 19px;
+      text-align: left;
+      margin-bottom: 20px; }
+    .report-block .report-block__table th {
+      font-family: "TT Norms-Regular", Montserrat, sans-serif;
+      font-size: 13px;
+      line-height: 15px;
+      color: #939DA6;
+      text-align: left;
+      padding: 7px 20px 20px 0;
+      vertical-align: top; }
+    .report-block .report-block__table td {
+      font-family: "TT Norms-Regular", Montserrat, sans-serif;
+      font-size: 14px;
+      line-height: 16px;
+      border-bottom: 1px solid #E9E9E9;
+      padding: 4px 20px 20px 0;
+      vertical-align: top; }
+    .report-block .report-block__table .report-block__table_data {
+      font-size: 16px;
+      line-height: 19px; }
+    .report-block .report-block__table .report-block__table_user {
+      font-size: 12px;
+      line-height: 14px; }
 
 /*# sourceMappingURL=style.css.map */
