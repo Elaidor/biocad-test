@@ -35,8 +35,8 @@ class Info extends Component{
         if (this.props.show) {
             return(
                 <>
-                    <section className="info-block flex">
-                        <form className="info-block__form" onSubmit={this.handleSubmit}>
+                    <section className="info-block flex flex-column">
+                        <form className="info-block__form flex-column" onSubmit={this.handleSubmit}>
                             <div className="info-block__form_product flex">
                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <g clipPath="url(#clip0_1:200)">
@@ -66,18 +66,20 @@ class Info extends Component{
                                 <option value="1 week">1 week</option>
                                 <option value="1 year">1 year</option>
                             </select>
-                            <div className="info-block__form_radio">
-                                <label><input type="radio" id="reportChoice1"
-                                name="report" value="calibration" checked/>
-                               Calibration</label>
-                                <label><input type="radio" id="reportChoice2"
-                                name="report" value="measuring"/>
-                                Measuring</label>
-                                <label><input type="radio" id="reportChoice3"
-                                name="report" value="using"/>
-                                Using</label>
+                            <div className="phone-screen">
+                                <div className="info-block__form_radio">
+                                    <label><input type="radio" id="reportChoice1"
+                                    name="report" value="calibration" checked/>
+                                Calibration</label>
+                                    <label><input type="radio" id="reportChoice2"
+                                    name="report" value="measuring"/>
+                                    Measuring</label>
+                                    <label><input type="radio" id="reportChoice3"
+                                    name="report" value="using"/>
+                                    Using</label>
+                                </div>
+                                <input className="info-block__form_button" type="submit" value="Generate report" />
                             </div>
-                            <input className="info-block__form_button" type="submit" value="Generate report" />
                         </form>
                         <div className="info-block__description">
                             <ul className="info-block__description_ul" >
