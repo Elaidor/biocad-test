@@ -8,31 +8,43 @@ class Info extends Component{
         this.state = {
             value: '',
             showReport:false,
-            reportData:[]
+            reportData:[],
+            searchTable: 'calibrations'
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleRadioChange = this.handleRadioChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     } 
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
+    handleRadioChange(e) {
+        this.setState({searchTable: e.target.value})
+    }
+
+    handleChange(e) {
+        this.setState({value: e.target.value});
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        const url="http://localhost:7777/api/calibrations/"+this.props.data['tam'];
+        if (this.state.searchTable == 'measures' || this.state.searchTable == 'uses') {
+            this.setState({showReport:false})
+            this.setState({reportData:"not_implemented"});
+            return
+        }
+        const url="http://localhost:7777/api/"+this.state.searchTable+"/"+this.props.data['tam'];
         axios.get(url)
             .then(
                 response=>{
                     this.setState({reportData:response.data});
+                    if (response.data.length > 0) {this.setState({showReport:true})}
+                    else {this.setState({showReport:true})}
                 }
             )
-        this.setState({showReport:true});
     }
     
     render(){
         const{showReport,reportData}=this.state;
-        if (this.props.show) {
+        if (this.props.show && this.props.data) {
             return(
                 <>
                     <section className="info-block flex flex-column">
@@ -69,13 +81,13 @@ class Info extends Component{
                             <div className="phone-screen">
                                 <div className="info-block__form_radio">
                                     <label><input type="radio" id="reportChoice1"
-                                    name="report" value="calibration" checked/>
-                                Calibration</label>
+                                    name="report" value="calibrations" defaultChecked onChange={this.handleRadioChange}/>
+                                    Calibration</label>
                                     <label><input type="radio" id="reportChoice2"
-                                    name="report" value="measuring"/>
+                                    name="report" value="measures" onChange={this.handleRadioChange}/>
                                     Measuring</label>
                                     <label><input type="radio" id="reportChoice3"
-                                    name="report" value="using"/>
+                                    name="report" value="uses" onChange={this.handleRadioChange}/>
                                     Using</label>
                                 </div>
                                 <input className="info-block__form_button" type="submit" value="Generate report" />
@@ -93,7 +105,7 @@ class Info extends Component{
                                 <li className="info-block__description_li">Территория: <span>{this.props.data["territory"]}</span></li>
                                 <li className="info-block__description_li">Серийный номер: <span>{this.props.data["serial"]}</span></li>
                                 <li className="info-block__description_li">GUID: <a className="blue-color" href="#">{this.props.data["guid"]}</a></li>
-                                <li className="info-block__description_li">Bims ID: <a className="blue-color" href="#"> {this.props.data["bims_id"]}</a></li>
+                                <li className="info-block__description_li">Bims ID: <a className="blue-color" href="#"> {this.props.data["bims"]}</a></li>
                                 <li className="info-block__description_li">Tam: <a className="blue-color" href="#"> {this.props.data["tam"]}</a></li>
                             </ul>
                         </div>
@@ -101,10 +113,11 @@ class Info extends Component{
                     <Report show={showReport} data={reportData}/>
                  </>
             ) 
-        } else if(this.props.data !== {}){
-        return(
-            <div>Нет информации</div>
-        )};
+        } else if(this.props.data === undefined){
+            return(<div>Ничего не найдено</div>)
+        } else {
+            return(<div></div>)
+        }
     }
 }
 export default Info;

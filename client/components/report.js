@@ -4,7 +4,7 @@ import redSign from "./../img/red.png";
 
 class Report extends Component{
     render(){
-        if (this.props.show) {
+        if (this.props.show && this.props.data.length > 0) {
             return(
                 <section className="report-block">
                     <table className="report-block__table">
@@ -23,7 +23,7 @@ class Report extends Component{
                                 return(
                                 <tr key={index}>
                                     <td className="report-block__table_data">
-                                       {item.data.split(" ").map(i => <span>{i}<br/></span>)}
+                                       {item.data.split(" ").map((j,jndex) => <span key={jndex}>{j}<br/></span>)}
                                     </td>
                                     <td className="report-block__table_solution">{
                                         item.solution.map((inner_item, inner_index)=>{
@@ -33,13 +33,18 @@ class Report extends Component{
                                         })
                                     }
                                     </td>
-                                    <td className="report-block__table_slope"><span>{item.slope}</span><img src={greenSign} alt="green"/></td>
-                                    {/* if({item.slope}>'91'){ return (
-                                    {item.slope}<img src={greenSign} alt="green"/>)} 
-                                    else {{item.slope}<img src={redSign} alt="red"/>} */}
-                                   
-                                    {/* <td><>{item.slope}<img src={greenSign} alt="green"/></></td> */}
-                                    <td className="report-block__table_offset"><span>{item.offset}</span><img src={greenSign} alt="green"/></td>
+                                    <td className="report-block__table_slope"><span>{item.slope}</span>
+                                        {(parseInt(item.slope) >= 95 && parseInt(item.slope) <= 105)
+                                            ? <img src={greenSign} alt="green"/>
+                                            : <img src={redSign} alt="red"/>
+                                        }
+                                    </td>
+                                    <td className="report-block__table_offset"><span>{item.offset}</span>
+                                        {(parseInt(item.offset) >= -20 && parseInt(item.offset) <= 20)
+                                                ? <img src={greenSign} alt="green"/>
+                                                : <img src={redSign} alt="red"/>
+                                            }
+                                    </td>
                                     <td className="report-block__table_user">{item.user}</td>
                                 </tr>)
                             })}
@@ -47,10 +52,15 @@ class Report extends Component{
                     </table>
                 </section>
             ) 
+        } else if (!this.props.show && this.props.data == "not_implemented") {
+            return(
+                <div>Ничего не найдено</div>
+            )
         } else {
-        return(
-            <div></div>
-        )};
+            return(
+                <div></div>
+            )
+        };
     }
 }
 export default Report;

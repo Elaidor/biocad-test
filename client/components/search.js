@@ -13,20 +13,25 @@ class Search extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
-    handleChange(event) {
-        this.setState({value: event.target.value});
+    handleChange(e) {
+        this.setState({value: e.target.value});
     }
 
     handleSubmit(e) {
         e.preventDefault();
+        if (this.state.value == "") {
+            this.setState({showInfo:false})
+            return
+        }
         const url="http://localhost:7777/api/scales/"+this.state.value;
         axios.get(url)
             .then(
                 response=>{
                     this.setState({scalesData:response.data[0]});
+                    if (response.data.length > 0) {this.setState({showInfo:true})}
+                    else {this.setState({showInfo:false})}
                 }
             )
-        this.setState({showInfo:true});
     }
 
     render(){

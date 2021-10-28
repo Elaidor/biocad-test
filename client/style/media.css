@@ -1,7 +1,7 @@
 @media screen and (max-width: 770px){
     .container{
         max-width: 755px;
-        padding: 30px 5px;
+        padding: 30px 10px;
     }
     .search-block__heading{
         font-size: 14px;
