@@ -1,0 +1,118 @@
+@media screen and (max-width: 770px){
+    .container{
+        max-width: 755px;
+        padding: 30px 10px;
+    }
+    .search-block__heading{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .info-block {
+        padding-top: 25px;
+    }
+    .info-block .info-block__form .info-block__form_product_name{
+        width: 80%;
+        font-size: 18px;
+    }
+    .info-block .info-block__form .info-block__form_select{
+        width: 80%;
+    }
+    .info-block .info-block__form .info-block__form_button{
+        width: 70%;
+    }
+    .info-block__description{
+        width: 65%;
+    }
+    .report-block{
+        padding: 30px;
+    }
+    .report-block .report-block__table .report-block__table_data{
+        padding-right: 20px;
+        font-size: 15px
+    }
+    .report-block .report-block__table td{
+        padding: 23px 0px 10px 0;
+    }
+
+}
+@media screen and (max-width: 480px){
+    .phone-show{
+        display: flex;
+
+    }
+    .info-block__form{
+        padding-top: 30px ;
+    }
+    .info-block .info-block__form .info-block__form_product{
+        display: none;
+    }
+    .info-block__form_product_name{
+        text-align: right;
+        width: 80%;
+    }
+    .flex-column-reverse{
+        flex-direction: column-reverse;
+    }
+    .flex-column{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .phone-screen{
+        display: flex;
+        justify-content: space-between;
+    }
+    .search-block__heading{
+        font-size: 14px;
+        line-height: 18px;
+    }
+    .search-block__input{
+        width: 100%;
+        margin-top: 10px;
+    }
+    .search-block__input .search-block__input_text{
+        width: 70%;
+    }
+    .info-block .info-block__form .info-block__form_product {
+        width: 90%;
+        margin-bottom: 10px;
+
+    }
+    .info-block .info-block__form .info-block__form_product_name{
+        text-align: right;
+    }
+    .info-block .info-block__form .info-block__form_select{
+        align-self: baseline;
+    }
+    .info-block__form .phone-screen{
+       align-self: baseline;
+       width: 100%;
+       margin-bottom: 20px;
+    }
+    .info-block .info-block__form .info-block__form_radio{
+        margin-bottom: 0;
+    }
+    .info-block .info-block__form .info-block__form_button {
+        width: 40%;
+        height: min-content;
+        align-self: end;
+    }   
+    .info-block__description {
+        width: 100%;
+        padding: 20px 10px;
+    }
+    .report-block {
+        padding: 30px 5px;
+    }
+    .report-block .report-block__table .report-block__table_data {
+        padding-right: 15px;
+        font-size: 13px;
+    }
+    .report-block .report-block__table .report-block__table_solution {
+        padding-right: 10px;
+    }
+    .report-block .report-block__table .report-block__table_slope img, .report-block .report-block__table .report-block__table_offset img {
+        margin-left: 5px;
+    }
+    
+}
