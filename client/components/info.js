@@ -114,7 +114,7 @@ class Info extends Component{
                  </>
             ) 
         } else if(this.props.data === undefined){
-            return(<div>Ничего не найдено</div>)
+            return(<div className="info-block__not-found">Product information not found</div>)
         } else {
             return(<div></div>)
         }

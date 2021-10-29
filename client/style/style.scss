@@ -48,7 +48,10 @@ $primary-color:#353535;
         cursor: pointer;
     }
 }
-
+.info-block__not-found{
+    padding-top: 40px;
+    font-size: 20px;
+}
 .info-block{
     padding-top: 30px;
     .info-block__form{
@@ -133,7 +136,13 @@ $primary-color:#353535;
         }
     }
 }
-
+.report-block__notFound{
+    margin-top: 40px;
+    padding: 40px;
+    border: 1px dashed #939DA6;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
 .report-block{
     margin-top: 46px;
     padding: 40px;
@@ -143,6 +152,8 @@ $primary-color:#353535;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.15);
     .report-block__table{
         border-collapse: collapse;
+        display: block;
+        overflow-x: auto;
         .report-block__table_heading{
             font-family: $regular-fonts;
             color: #000000;

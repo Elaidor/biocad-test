@@ -84,7 +84,18 @@
         width: 100%;
         padding: 20px 10px;
     }
-    
-
+    .report-block {
+        padding: 30px 5px;
+    }
+    .report-block .report-block__table .report-block__table_data {
+        padding-right: 15px;
+        font-size: 13px;
+    }
+    .report-block .report-block__table .report-block__table_solution {
+        padding-right: 10px;
+    }
+    .report-block .report-block__table .report-block__table_slope img, .report-block .report-block__table .report-block__table_offset img {
+        margin-left: 5px;
+    }
     
 }

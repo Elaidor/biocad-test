@@ -54,7 +54,7 @@ class Report extends Component{
             ) 
         } else if (!this.props.show && this.props.data == "not_implemented") {
             return(
-                <div>Ничего не найдено</div>
+                <div className="report-block__notFound">Ничего не найдено</div>
             )
         } else {
             return(
