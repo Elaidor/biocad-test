@@ -11,6 +11,9 @@
   display: flex;
   justify-content: space-between; }
 
+.phone-show {
+  display: none; }
+
 .search-block__heading {
   font-family: "TT Norms-Regular", Montserrat, sans-serif;
   font-size: 16px;

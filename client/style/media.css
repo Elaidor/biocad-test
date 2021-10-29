@@ -36,6 +36,23 @@
 
 }
 @media screen and (max-width: 480px){
+    .phone-show{
+        display: flex;
+
+    }
+    .info-block__form{
+        padding-top: 30px ;
+    }
+    .info-block .info-block__form .info-block__form_product{
+        display: none;
+    }
+    .info-block__form_product_name{
+        text-align: right;
+        width: 80%;
+    }
+    .flex-column-reverse{
+        flex-direction: column-reverse;
+    }
     .flex-column{
         display: flex;
         flex-direction: column;

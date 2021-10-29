@@ -14,6 +14,9 @@ $primary-color:#353535;
     display: flex;
     justify-content: space-between;
 }
+.phone-show{
+    display: none;
+}
 .search-block__heading{
     font-family:$regular-fonts ;
     font-size: 16px;
