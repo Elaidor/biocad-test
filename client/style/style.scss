@@ -209,3 +209,10 @@ $primary-color:#353535;
         }
     }
 }
+input[type="submit"]{
+    transition: 0.9s;
+    &:hover{
+    opacity: 0.8;
+    transition: 0.9s;
+    }
+}

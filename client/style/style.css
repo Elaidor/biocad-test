@@ -176,4 +176,10 @@
       font-size: 12px;
       line-height: 14px; }
 
+input[type="submit"] {
+  transition: 0.9s; }
+  input[type="submit"]:hover {
+    opacity: 0.8;
+    transition: 0.9s; }
+
 /*# sourceMappingURL=style.css.map */
