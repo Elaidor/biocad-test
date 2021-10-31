@@ -25,7 +25,7 @@ class Search extends Component {
       this.setState({ showInfo: false });
       return;
     }
-    const url = `http://localhost:7777/api/scales/${value}`;
+    const url = `api/scales/${value}`;
     axios.get(url).then((response) => {
       this.setState({ scalesData: response.data[0] });
       if (response.data.length > 0) {

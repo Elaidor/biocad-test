@@ -35,7 +35,7 @@ class Info extends Component {
       this.setState({ reportData: 'not_implemented' });
       return;
     }
-    const url = `http://localhost:7777/api/${searchTable}/${data.tam}`;
+    const url = `api/${searchTable}/${data.tam}`;
     axios.get(url).then((response) => {
       this.setState({ reportData: response.data });
       if (response.data.length > 0) {
