@@ -1,10 +1,11 @@
 import React,{Component} from "react";
 import ReactDOM from "react-dom";
-import Search from "./components/search.js";
+import Search from "./components/search.jsx";
 
-// import "./style/fonts.css";
-// import "./style/style.css";
-
+import "./style/normalize.css";
+import "./style/fonts.css";
+import "./style/style.scss";
+import "./style/media.css";
 
 class App extends Component{
        render(){
