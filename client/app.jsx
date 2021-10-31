@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Search from './components/search.jsx';
+import Search from './components/search';
 
 import './style/normalize.css';
 import './style/fonts.css';
