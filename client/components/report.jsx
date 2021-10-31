@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import greenSign from './../img/green.png';
-import redSign from './../img/red.png';
+import PropTypes from 'prop-types';
+import greenSign from '../img/green.png';
+import redSign from '../img/red.png';
 
 class Report extends Component {
   render() {
-    if (this.props.show && this.props.data.length > 0) {
+    const { show, data } = this.props;
+    if (show && data.length > 0) {
       return (
         <section className="report-block">
           <table className="report-block__table">
@@ -24,22 +26,22 @@ class Report extends Component {
               </tr>
             </thead>
             <tbody>
-              {this.props.data.map((item, index) => {
+              {data.map((item, index) => {
                 return (
-                  <tr key={index}>
+                  <tr key={index.id}>
                     <td className="report-block__table_data">
                       {item.data.split(' ').map((j, jndex) => (
-                        <span key={jndex}>
+                        <span key={jndex.id}>
                           {j}
                           <br />
                         </span>
                       ))}
                     </td>
                     <td className="report-block__table_solution">
-                      {item.solution.map((inner_item, inner_index) => {
+                      {item.solution.map((innerItem, innerIndex) => {
                         return (
-                          <span key={inner_index}>
-                            B{inner_index + 1}: №{inner_item.number}: pH {inner_item.ph_value}
+                          <span key={innerIndex.id}>
+                            B{innerIndex + 1}: №{innerItem.number}: pH {innerItem.ph_value}
                             <br />
                           </span>
                         );
@@ -69,11 +71,17 @@ class Report extends Component {
           </table>
         </section>
       );
-    } else if (!this.props.show && this.props.data == 'not_implemented') {
-      return <div className="report-block__notFound">Ничего не найдено</div>;
-    } else {
-      return <div></div>;
     }
+    if (!show && data === 'not_implemented') {
+      return <div className="report-block__notFound">Ничего не найдено</div>;
+    }
+    return <div />;
   }
 }
+
+Report.propTypes = {
+  show: PropTypes.bool,
+  data: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
+};
+
 export default Report;

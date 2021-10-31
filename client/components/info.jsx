@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import axios from 'axios';
-import Report from './report.jsx';
+import Report from './report';
 import scale from '../img/scale.svg';
 
 class Info extends Component {
@@ -26,13 +27,15 @@ class Info extends Component {
   }
 
   handleSubmit(e) {
+    const { searchTable } = this.state;
+    const { data } = this.props;
     e.preventDefault();
-    if (this.state.searchTable == 'measures' || this.state.searchTable == 'uses') {
+    if (searchTable === 'measures' || searchTable === 'uses') {
       this.setState({ showReport: false });
       this.setState({ reportData: 'not_implemented' });
       return;
     }
-    const url = 'http://localhost:7777/api/' + this.state.searchTable + '/' + this.props.data['tam'];
+    const url = `http://localhost:7777/api/${searchTable}/${data.tam}`;
     axios.get(url).then((response) => {
       this.setState({ reportData: response.data });
       if (response.data.length > 0) {
@@ -44,24 +47,25 @@ class Info extends Component {
   }
 
   render() {
-    const { showReport, reportData } = this.state;
-    if (this.props.show && this.props.data) {
+    const { showReport, reportData, value } = this.state;
+    const { show, data } = this.props;
+    if (show && data) {
       return (
         <>
           <section className="info-block flex flex-column-reverse">
             <form className="info-block__form flex-column" onSubmit={this.handleSubmit}>
               <div className="info-block__form_product flex">
                 <img src={scale} alt="scale" />
-                <p className="info-block__form_product_name">{this.props.data['product_name']}</p>
+                <p className="info-block__form_product_name">{data.product_name}</p>
               </div>
-              <select className="info-block__form_select" value={this.state.value} onChange={this.handleChange}>
+              <select className="info-block__form_select" value={value} onChange={this.handleChange}>
                 <option value="1 month">1 month</option>
                 <option value="1 week">1 week</option>
                 <option value="1 year">1 year</option>
               </select>
               <div className="phone-screen">
                 <div className="info-block__form_radio">
-                  <label>
+                  <label htmlFor="reportChoice1">
                     <input
                       type="radio"
                       id="reportChoice1"
@@ -72,11 +76,11 @@ class Info extends Component {
                     />
                     Calibration
                   </label>
-                  <label>
+                  <label htmlFor="reportChoice2">
                     <input type="radio" id="reportChoice2" name="report" value="measures" onChange={this.handleRadioChange} />
                     Measuring
                   </label>
-                  <label>
+                  <label htmlFor="reportChoice3">
                     <input type="radio" id="reportChoice3" name="report" value="uses" onChange={this.handleRadioChange} />
                     Using
                   </label>
@@ -87,67 +91,73 @@ class Info extends Component {
             <div className="info-block__description">
               <ul className="info-block__description_ul">
                 <li className="info-block__description_li">
-                  Тип оборудования: <span>{this.props.data['type']}</span>
+                  Тип оборудования: <span>{data.type}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Статус: <span>{this.props.data['status']}</span>
+                  Статус: <span>{data.status}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Изготовитель: <span>{this.props.data['manufacture']}</span>
+                  Изготовитель: <span>{data.manufacture}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Модель: <span>{this.props.data['model']}</span>
+                  Модель: <span>{data.model}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Ответственное подразделение (ремонт): <span>{this.props.data['responsible_division']}</span>
+                  Ответственное подразделение (ремонт): <span>{data.responsible_division}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Эксплуатирующее подразделение: <span>{this.props.data['operational_division']}</span>
+                  Эксплуатирующее подразделение: <span>{data.operational_division}</span>
                 </li>
                 <li className="info-block__description_li">
-                  МОЛ: <span>{this.props.data['mol']}</span>
+                  МОЛ: <span>{data.mol}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Территория: <span>{this.props.data['territory']}</span>
+                  Территория: <span>{data.territory}</span>
                 </li>
                 <li className="info-block__description_li">
-                  Серийный номер: <span>{this.props.data['serial']}</span>
+                  Серийный номер: <span>{data.serial}</span>
                 </li>
                 <li className="info-block__description_li">
                   GUID:{' '}
                   <a className="blue-color" href="#">
-                    {this.props.data['guid']}
+                    {data.guid}
                   </a>
                 </li>
                 <li className="info-block__description_li">
                   Bims ID:{' '}
                   <a className="blue-color" href="#">
                     {' '}
-                    {this.props.data['bims']}
+                    {data.bims}
                   </a>
                 </li>
                 <li className="info-block__description_li">
                   Tam:{' '}
                   <a className="blue-color" href="#">
                     {' '}
-                    {this.props.data['tam']}
+                    {data.tam}
                   </a>
                 </li>
               </ul>
             </div>
             <div className="info-block__form_product flex phone-show">
               <img src={scale} alt="scale" />
-              <p className="info-block__form_product_name">{this.props.data['product_name']}</p>
+              <p className="info-block__form_product_name">{data.product_name}</p>
             </div>
           </section>
           <Report show={showReport} data={reportData} />
         </>
       );
-    } else if (this.props.data === undefined) {
-      return <div className="info-block__not-found">Product information not found</div>;
-    } else {
-      return <div></div>;
     }
+    if (data === undefined) {
+      return <div className="info-block__not-found">Product information not found</div>;
+    }
+    return <div />;
   }
 }
+
+Info.propTypes = {
+  show: PropTypes.bool,
+  data: PropTypes.object,
+};
+
 export default Info;
